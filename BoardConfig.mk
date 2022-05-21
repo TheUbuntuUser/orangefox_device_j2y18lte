@@ -50,6 +50,7 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 # File systems
 BOARD_HAS_LARGE_FILESYSTEM := true
 TARGET_USERIMAGES_USE_EXT4 := true
+TARGET_USERIMAGES_USE_F2FS := true
 
 # TWRP specific build flags
 TW_THEME := portrait_hdpi
