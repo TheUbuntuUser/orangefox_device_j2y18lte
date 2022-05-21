@@ -11,11 +11,6 @@ ALLOW_MISSING_DEPENDENCIES :=true
 TARGET_NO_BOOTLOADER := true
 TARGET_BOOTLOADER_BOARD_NAME := MSM8937
 
-# Flags
-# TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
-# TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
-#COMMON_GLOBAL_CFLAGS +=
-
 # Architecture
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
@@ -36,25 +31,14 @@ TARGET_BOARD_SUFFIX := _64
 # Kernel
 BOARD_KERNEL_CMDLINE := console=null androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 androidboot.selinux=permissive BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_PAGESIZE := 2048
-BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x02000000 --second_offset 0x00f00000 --tags_offset 0x01e00000
+BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x02000000 --second_offset 0x00f00000 --tags_offset 0x01e00000  --dt device/samsung/j2y18lte/dt.img
 BOARD_FLASH_BLOCK_SIZE := 131072
 BOARD_KERNEL_IMAGE_NAME := Image.gz
-BOARD_KERNEL_SEPARATED_DT := true
-BOARD_KERNEL_SEPARATED_DT := true
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_KERNEL_SOURCE := kernel/samsung/msm8917
 TARGET_KERNEL_CONFIG := j2y18lte_defconfig
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
-
-# Boot image
-# BOARD_KERNEL_CMDLINE := console=null androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 androidboot.selinux=permissive BOARD_KERNEL_BASE := 0x80000000 BOARD_KERNEL_PAGESIZE := 2048
-# BOARD_KERNEL_SEPARATED_DT := true
-# 000RU = recovery kernel, 000KU = system kernel
-# BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x02000000 --second_offset 0x00f00000 --tags_offset 0x01e00000 --board MSM8937  --dt device/samsung/j2y18lte/dt.img
-#BOARD_CUSTOM_BOOTIMG_MK := $(DEVICE_TREE)/mkbootimg.mk
-# TARGET_KERNEL_ARCH := arm64
-# TARGET_KERNEL_HEADER_ARCH := arm64
 
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE     := 33554432
@@ -66,13 +50,11 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 # File systems
 BOARD_HAS_LARGE_FILESYSTEM := true
 TARGET_USERIMAGES_USE_EXT4 := true
-#TARGET_USERIMAGES_USE_F2FS := true
 
 # TWRP specific build flags
 TW_THEME := portrait_hdpi
 RECOVERY_SDCARD_ON_DATA := true
 TARGET_RECOVERY_QCOM_RTC_FIX := true
-#TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/f9200000.ssusb/f9200000.dwc3/gadget/lun%d/file"
 TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
 TW_MAX_BRIGHTNESS := 255
